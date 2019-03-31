@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+    <string name="title">老人监护系统</string>
+    <string name="phone_number">手机号：</string>
+    <string name="password">密码：</string>
+    <string name="old">老人</string>
+    <string name="son_daught">子女</string>
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+    <string name="forget_passward">忘记密码？</string>
+    <string name="username">姓名：</string>
+    <string name="mailbox">邮箱：</string>
+    <string name="register_sure">确认注册</string>
+</resources>

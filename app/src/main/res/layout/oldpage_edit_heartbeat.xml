@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/blood_pressure"
+        android:layout_width="63dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="140dp"
+        android:text="血压："
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/heart_edit"
+        android:layout_width="160dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="140dp"
+        android:digits="0123456789"
+        android:hint="请输入血压值"
+        android:paddingTop="0dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/blood_pressure"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/heartbeat"
+        android:layout_width="63dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="50dp"
+        android:text="心跳："
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/blood_pressure" />
+
+
+    <EditText
+        android:id="@+id/blood_edit"
+        android:layout_width="163dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="20dp"
+        android:digits="0123456789"
+        android:hint="请输入心跳值"
+        android:paddingTop="0dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toRightOf="@+id/heartbeat"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heart_edit" />
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="100dp"
+        android:text="取消"
+        android:onClick="oldedit_skip_home"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heartbeat"
+        tools:ignore="OnClick"/>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+        android:text="保存"
+        app:layout_constraintStart_toEndOf="@+id/cancel"
+        app:layout_constraintTop_toBottomOf="@+id/blood_edit" />
+
+
+</android.support.constraint.ConstraintLayout>
