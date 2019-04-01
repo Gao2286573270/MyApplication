@@ -122,10 +122,12 @@
         android:layout_marginLeft="150dp"
         android:layout_marginTop="112dp"
         android:text="@string/register_sure"
+        android:onClick="register_skip_mian"
         android:textColor="#ffffff"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/suser_id" />
+        app:layout_constraintTop_toBottomOf="@id/suser_id"
+        tools:ignore="OnClick"/>
 
 
 
