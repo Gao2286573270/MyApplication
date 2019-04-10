@@ -2,6 +2,7 @@ package com.example.nangao.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 
@@ -41,9 +43,8 @@ public class RegistersActivity extends AppCompatActivity {
         } else {
         //从控制台获取表，上传输入的值
             MessageManager.getInstance().getMytable();
-            MessageManager.getInstance().setSonMessage(email, phone, password);
+            MessageManager.getInstance().setSonMessage(phone,email,password);
 
-            //bmobSDK对云端数据库的操作是异步回调
             MessageManager.getInstance().getMytable().save(new SaveListener<String>() {
                 @Override
                 public void done(String s, BmobException e) {//s插入，会生成唯一的标识

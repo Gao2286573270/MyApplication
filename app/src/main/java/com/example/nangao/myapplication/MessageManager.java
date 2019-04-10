@@ -1,5 +1,14 @@
 package com.example.nangao.myapplication;
 
+import android.util.Log;
+import android.widget.Toast;
+
+import java.util.List;
+
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
+
 public class MessageManager {
 
     private MyTable mytable;
@@ -32,6 +41,7 @@ public class MessageManager {
         mytable.setOldphonenumber(oldphone);
         mytable.setOldpassword(oldpassword);
     }
+
 
 
     public MyTable getMytable(){
