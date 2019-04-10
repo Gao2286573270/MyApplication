@@ -16,12 +16,14 @@ public class OldInfoActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setClass(OldInfoActivity.this,OldSecureActivity.class);
         startActivity(intent);
+        finish();
     }
 
     public void oldinfo_skip_heartbeat(View view) {
         Intent intent = new Intent();
         intent.setClass(OldInfoActivity.this, OldPageActivity.class);
         startActivity(intent);
+        finish();
     }
 
 }

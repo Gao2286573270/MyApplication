@@ -16,5 +16,6 @@ public class OldEditHeartbeatActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setClass(OldEditHeartbeatActivity.this, OldPageActivity.class);
         startActivity(intent);
+        finish();
     }
 }

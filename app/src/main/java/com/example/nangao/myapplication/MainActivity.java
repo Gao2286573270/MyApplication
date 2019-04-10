@@ -107,14 +107,17 @@ public class MainActivity extends AppCompatActivity {
                                 String pass=list.get(i).getSonpassword();
 
                                 Log.e("user","唯一 id:"+list.get(i).getObjectId()+"----"+phonenumber+"---"+pass);
+
                                 if(phonenumber.equals(phone1) && pass.equals(pass1)){
                                     Toast.makeText(MainActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                                     panduan=2;
+
                                     //成功后panduan等于2,则跳出该循环,并且把输入快都清空,跳转到指定页面
                                     phoneNums.setText("");
                                     password.setText("");
                                     String email = list.get(i).getSonemail();
 
+                                    //传递参数(手机号、邮箱)，用于设置个人信息
                                     Intent intent = new Intent();
                                     intent.setClass(MainActivity.this, SonHomeActivity.class);
                                     intent.putExtra("sonphone",phone1);

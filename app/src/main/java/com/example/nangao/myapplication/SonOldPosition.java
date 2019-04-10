@@ -17,11 +17,13 @@ public class SonOldPosition extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setClass(SonOldPosition.this, SonOldTracking.class);
         startActivity(intent);
+        finish();
     }
 
     public void position_skip_heartbeat(View view) {
         Intent intent = new Intent();
         intent.setClass(SonOldPosition.this,SonOldInfoActivity.class);
         startActivity(intent);
+        finish();
     }
 }
