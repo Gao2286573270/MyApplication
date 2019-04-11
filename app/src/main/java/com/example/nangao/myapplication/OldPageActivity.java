@@ -10,6 +10,11 @@ public class OldPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.oldpage_home);
+
+        //接收传递过来的参数(手机号、邮箱)，用于设置个人信息
+        final Intent intent = getIntent();
+        String phone = intent.getStringExtra("oldphone");
+        String name = intent.getStringExtra("oldname");
     }
 
     public void oldhome_skip_edit_heartbeat(View view) {
@@ -29,6 +34,14 @@ public class OldPageActivity extends AppCompatActivity {
     public void oldhome_skip_info(View view) {
         Intent intent = new Intent();
         intent.setClass(OldPageActivity.this, OldInfoActivity.class);
+
+        //传递参数(手机号、邮箱)，用于设置个人信息
+        final Intent intent1 = getIntent();
+        String phone = intent1.getStringExtra("oldphone");
+        String name = intent1.getStringExtra("oldname");
+        intent.putExtra("oldphone",phone);
+        intent.putExtra("oldname",name);
+
         startActivity(intent);
         finish();
     }

@@ -17,13 +17,11 @@ import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
 public class SonInfoActivity extends AppCompatActivity {
-/*    private TextView email;
-    private TextView phonenumber;*/
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sonpage_info);
+
 //接收传递过来的参数(手机号、邮箱)，用于设置个人信息
         final Intent intent = getIntent();
         String phone = intent.getStringExtra("sonphone");
@@ -42,13 +40,6 @@ public class SonInfoActivity extends AppCompatActivity {
         email1.setText(email);
         phonenumber.setText(phone);
     }
-
-
-
-
-
-
-
 
 
 

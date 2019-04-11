@@ -18,6 +18,7 @@ import com.example.nangao.myapplication.MyTable;
 
 import java.util.List;
 
+
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
@@ -35,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
     private int judgeold = 1;
     private EditText phoneNums;
     private EditText password;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -75,73 +75,79 @@ public class MainActivity extends AppCompatActivity {
 
 
         //根据身份的不同，跳转到不同的登录页面
-        public void main_skip_oldpage (View view)
-        {
+        public void main_skip_oldpage (View view) {
             final String phone1 = phoneNums.getText().toString();
             final String pass1 = password.getText().toString();
 
             //当输入框为空的时候，点击登录，做一个提示
-            if (TextUtils.isEmpty(phone1) || TextUtils.isEmpty(pass1))
-            {
-                Toast.makeText(MainActivity.this,"还没有输入内容",Toast.LENGTH_LONG).show();
+            if (TextUtils.isEmpty(phone1) || TextUtils.isEmpty(pass1)) {
+                Toast.makeText(MainActivity.this, "还没有输入内容", Toast.LENGTH_LONG).show();
             }//确定输入框有数值
-            else
-            {
+            else {
                 MessageManager.getInstance().getMytable();
 
-                if (judgeold == 1)
+                BmobQuery<MyTable> query2 = new BmobQuery<MyTable>();
+                query2.findObjects(new FindListener<MyTable>()
                 {
-                    Intent intent = new Intent();
-                    intent.setClass(MainActivity.this, OldPageActivity.class);
-                    startActivity(intent);
-
-                } else if (judgeold == 2)
-                {
-                    BmobQuery<MyTable> query=new BmobQuery<MyTable>();
-                    query.findObjects(new FindListener<MyTable>() {
                     @Override
                     public void done(List<MyTable> list, BmobException e) {
-                        int panduan=1;
-                            for(int i=0;i<list.size();i++){
-                                String phonenumber=list.get(i).getSonphonenumber();
-                                String pass=list.get(i).getSonpassword();
+                        int panduan = 1;
+                        for (int i = 0; i < list.size(); i++) {
+                            String sonnumber = list.get(i).getSonphonenumber();
+                            String sonpass = list.get(i).getSonpassword();
+                            String oldnumber = list.get(i).getOldphonenumber();
+                            String oldpass = list.get(i).getOldpassword();
 
-                                Log.e("user","唯一 id:"+list.get(i).getObjectId()+"----"+phonenumber+"---"+pass);
+                            Log.e("user", "唯一 id:" + list.get(i).getObjectId() + "----" + sonnumber + "---" + sonpass);
 
-                                if(phonenumber.equals(phone1) && pass.equals(pass1)){
-                                    Toast.makeText(MainActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
-                                    panduan=2;
+                            if (sonnumber.equals(phone1) && sonpass.equals(pass1) && (judgeold == 2)) {
+                                Toast.makeText(MainActivity.this, "子女登录成功", Toast.LENGTH_SHORT).show();
+                                panduan = 2;
+                                //成功后panduan等于2,则跳出该循环,并且把输入快都清空,跳转到指定页面
+                                phoneNums.setText("");
+                                password.setText("");
+                                String email = list.get(i).getSonemail();
 
-                                    //成功后panduan等于2,则跳出该循环,并且把输入快都清空,跳转到指定页面
-                                    phoneNums.setText("");
-                                    password.setText("");
-                                    String email = list.get(i).getSonemail();
+                                //传递参数(手机号、邮箱)，用于设置个人信息
+                                Intent intent = new Intent();
+                                intent.setClass(MainActivity.this, SonHomeActivity.class);
+                                intent.putExtra("sonphone", phone1);
+                                intent.putExtra("sonemail", email);
+                                intent.putExtra("order", i);//对应的行数
+                                startActivity(intent);
+                                break;
+                            }
+                            if(phone1.equals(oldnumber) && pass1.equals(oldpass) && (judgeold == 1))
+                            {
+                                Toast.makeText(MainActivity.this, "老人登录成功", Toast.LENGTH_SHORT).show();
+                                panduan = 2;
 
-                                    //传递参数(手机号、邮箱)，用于设置个人信息
-                                    Intent intent = new Intent();
-                                    intent.setClass(MainActivity.this, SonHomeActivity.class);
-                                    intent.putExtra("sonphone",phone1);
-                                    intent.putExtra("sonemail",email);
-                                    startActivity(intent);
+                                //成功后panduan等于2,则跳出该循环,并且把输入快都清空,跳转到指定页面
+                                phoneNums.setText("");
+                                password.setText("");
+                                String name = list.get(i).getOldname();
 
-                                    break;
-                                }
-
+                                //传递参数(手机号、邮箱)，用于设置个人信息
+                                Intent intent = new Intent();
+                                intent.setClass(MainActivity.this, OldPageActivity.class);
+                                intent.putExtra("oldphone", phone1);
+                                intent.putExtra("oldname", name);
+                                intent.putExtra("order", i);//对应的行数
+                                startActivity(intent);
+                                break;
                             }
                             if(panduan==1){
                                 Toast.makeText(MainActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
-                                //登录失败，把输入快都清空,跳转到指定页面
+                                //登录失败，把输入框都清空,跳转到指定页面
                                 phoneNums.setText("");
                                 password.setText("");
-
                             }
 
                         }
-                    });
+                    }
+                });
 
-                }
             }
-
         }
 
         //只需要子女注册
@@ -151,6 +157,4 @@ public class MainActivity extends AppCompatActivity {
             intent.setClass(MainActivity.this, RegistersActivity.class);
             startActivity(intent);
         }
-
-
-    }
+}

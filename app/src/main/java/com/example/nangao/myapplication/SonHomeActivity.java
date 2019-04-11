@@ -43,6 +43,12 @@ public class SonHomeActivity extends AppCompatActivity {
     public void sonhome_skip_add(View view) {
         Intent intent = new Intent();
         intent.setClass(SonHomeActivity.this,SonAddActivity.class);
+
+        //传递参数(手机号、邮箱)，用于绑定老人信息
+        final Intent intent1 = getIntent();
+        String phone = intent1.getStringExtra("sonphone");
+        intent.putExtra("sonphone",phone);
+
         startActivity(intent);
     }
 
