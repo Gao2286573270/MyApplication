@@ -17,6 +17,11 @@ public class MyTable extends BmobObject {
     private String sonemail;//子女邮箱
     private String sonpassword;//子女密码
 
+
+    private String blood;//老人的血压
+    private String heartbeat;//老人的心跳
+
+
     // 仅在客户端使用，不希望被gson序列化提交到后端云，记得用transient修饰
     // (Java序列化是指把Java对象转换为可传输的字节序列的过程；而Java反序列化是指把传输的字节序列恢复为Java对象的过程。这两个过程使我们非常方便的存储和传输数据)
     //private transient Integer count;
@@ -84,5 +89,24 @@ public class MyTable extends BmobObject {
     {
         this.sonpassword = sonpassword;
     }
+
+
+    public String getBlood() {
+        return blood;
+    }
+
+    public void setBlood(String blood) {
+        this.blood = blood;
+    }
+
+
+    public String getHeartbeat() {
+        return heartbeat;
+    }
+
+    public void setHeartbeat(String heartbeat) {
+        this.heartbeat = heartbeat;
+    }
+
 
 }

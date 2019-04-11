@@ -126,13 +126,16 @@ public class MainActivity extends AppCompatActivity {
                                 phoneNums.setText("");
                                 password.setText("");
                                 String name = list.get(i).getOldname();
+                                String blood = list.get(i).getBlood();
+                                String heartbeat = list.get(i).getHeartbeat();
 
                                 //传递参数(手机号、邮箱)，用于设置个人信息
                                 Intent intent = new Intent();
                                 intent.setClass(MainActivity.this, OldPageActivity.class);
                                 intent.putExtra("oldphone", phone1);
                                 intent.putExtra("oldname", name);
-                                intent.putExtra("order", i);//对应的行数
+                                intent.putExtra("blood", blood);
+                                intent.putExtra("heartbeat", heartbeat);
                                 startActivity(intent);
                                 break;
                             }

@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/blood_value"
+        android:id="@+id/heartbeat_value"
         android:layout_width="98dp"
         android:layout_height="29dp"
         android:layout_marginStart="220dp"
@@ -42,7 +42,7 @@
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/heartbeat_value" />
+        app:layout_constraintTop_toBottomOf="@+id/blood_value" />
 
 
     <TextView
@@ -60,7 +60,7 @@
 
 
     <TextView
-        android:id="@+id/heartbeat_value"
+        android:id="@+id/blood_value"
         android:layout_width="92dp"
         android:layout_height="29dp"
         android:layout_marginStart="220dp"
