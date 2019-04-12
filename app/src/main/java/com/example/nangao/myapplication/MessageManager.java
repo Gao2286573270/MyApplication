@@ -34,14 +34,6 @@ public class MessageManager {
         mytable.setSonpassword(sonpassword);
     }
 
-    //上传老人的信息
-    public void setOldMessage(String oldname,String oldphone,String oldpassword)
-    {
-        mytable.setOldname(oldname);
-        mytable.setOldphonenumber(oldphone);
-        mytable.setOldpassword(oldpassword);
-    }
-
 
 
     public MyTable getMytable(){

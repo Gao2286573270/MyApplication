@@ -42,8 +42,9 @@ public class OldPageActivity extends AppCompatActivity {
 
         final Intent intent1 = getIntent();
         String phone = intent1.getStringExtra("oldphone");
-        intent1.putExtra("oldphone",phone);
-
+        String objectid = intent1.getStringExtra("objectid");
+        intent.putExtra("oldphone",phone);
+        intent.putExtra("objectid", objectid);
         startActivity(intent);
         finish();
     }

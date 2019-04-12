@@ -14,15 +14,23 @@ import java.util.List;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.SaveListener;
+import cn.bmob.v3.listener.UpdateListener;
 
 public class OldEditHeartbeatActivity extends AppCompatActivity {
     private EditText blood;
     private EditText heartbeat;
+    String objectid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.oldpage_edit_heartbeat);
+
+        final Intent intent = getIntent();
+        objectid = intent.getStringExtra("objectid");
+        Log.e("user", "老人所在行的 id:" + objectid);
+
 
         blood = findViewById(R.id.blood_edit);
         heartbeat = findViewById(R.id.heart_edit);
@@ -35,20 +43,35 @@ public class OldEditHeartbeatActivity extends AppCompatActivity {
         final String blood1 = blood.getText().toString();
         final String heartbeat1 = heartbeat.getText().toString();
 
-        final Intent intent1 = getIntent();
-        final String phone = intent1.getStringExtra("oldphone");
 
-        //当输入框为空的时候，点击登录，做一个提示
+        //当输入框为空的时候，点击保存，做一个提示
         if (TextUtils.isEmpty(blood1) || TextUtils.isEmpty(heartbeat1)) {
-            Toast.makeText(OldEditHeartbeatActivity.this, "还没有输入内容", Toast.LENGTH_LONG).show();
+            Toast.makeText(OldEditHeartbeatActivity.this, "还没有输入更新的内容", Toast.LENGTH_LONG).show();
         }//确定输入框有数值
         else {
-            Intent intent = new Intent();
-            intent.setClass(OldEditHeartbeatActivity.this, OldPageActivity.class);
-            intent.putExtra("blood", blood1);
-            intent.putExtra("heartbeat", heartbeat1);
-            startActivity(intent);
-            finish();
+
+            //表的数组不OK
+            MessageManager.getInstance().getMytable();
+            MessageManager.getInstance().getMytable().setBlood(blood1);
+            MessageManager.getInstance().getMytable().setHeartbeat(heartbeat1);
+
+            MessageManager.getInstance().getMytable().update(objectid, new UpdateListener() {
+                @Override
+                public void done(BmobException e) {
+                    if (e == null) {
+                        Intent intent = new Intent();
+                        intent.setClass(OldEditHeartbeatActivity.this, OldPageActivity.class);
+
+                        intent.putExtra("blood", blood1);
+                        intent.putExtra("heartbeat", heartbeat1);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(OldEditHeartbeatActivity.this, "老人的身体健康参数更新失败", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
         }
     }
 

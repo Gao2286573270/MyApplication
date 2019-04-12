@@ -128,6 +128,9 @@ public class MainActivity extends AppCompatActivity {
                                 String name = list.get(i).getOldname();
                                 String blood = list.get(i).getBlood();
                                 String heartbeat = list.get(i).getHeartbeat();
+                                String objectid  =  list.get(i).getObjectId();
+                                Log.e("user", "老人所在行的 id:" + list.get(i).getObjectId());
+
 
                                 //传递参数(手机号、邮箱)，用于设置个人信息
                                 Intent intent = new Intent();
@@ -136,16 +139,17 @@ public class MainActivity extends AppCompatActivity {
                                 intent.putExtra("oldname", name);
                                 intent.putExtra("blood", blood);
                                 intent.putExtra("heartbeat", heartbeat);
+                                intent.putExtra("objectid", objectid);//对应的行数
                                 startActivity(intent);
                                 break;
                             }
-                            if(panduan==1){
-                                Toast.makeText(MainActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
-                                //登录失败，把输入框都清空,跳转到指定页面
-                                phoneNums.setText("");
-                                password.setText("");
-                            }
 
+                        }
+                        if(panduan==1){
+                            Toast.makeText(MainActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
+                            //登录失败，把输入框都清空,跳转到指定页面
+                            phoneNums.setText("");
+                            password.setText("");
                         }
                     }
                 });

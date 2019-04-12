@@ -24,6 +24,7 @@ public class SonAddActivity extends AppCompatActivity {
     private Button sure;
     String son_phone;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +71,8 @@ public class SonAddActivity extends AppCompatActivity {
                             list.get(i).setOldname(name);
                             list.get(i).setOldphonenumber(phone);
                             list.get(i).setOldpassword(password);
+                            list.get(i).setBlood(phone);
+                            list.get(i).setHeartbeat(password);
 
                             list.get(i).save(new SaveListener<String>() {
                                 @Override
