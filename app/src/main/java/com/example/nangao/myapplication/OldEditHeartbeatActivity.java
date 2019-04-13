@@ -29,7 +29,7 @@ public class OldEditHeartbeatActivity extends AppCompatActivity {
 
         final Intent intent = getIntent();
         objectid = intent.getStringExtra("objectid");
-        Log.e("user", "老人所在行的 id:" + objectid);
+        //Log.e("user", "老人所在行的 id:" + objectid);
 
 
         blood = findViewById(R.id.blood_edit);

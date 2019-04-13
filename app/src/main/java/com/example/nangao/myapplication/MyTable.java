@@ -3,6 +3,7 @@ package com.example.nangao.myapplication;
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobObject;
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.datatype.BmobGeoPoint;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 import android.widget.Toast;
@@ -18,6 +19,10 @@ public class MyTable extends BmobObject {
     private String sonpassword;//子女密码
     private String blood;//老人的血压
     private String heartbeat;//老人的心跳
+    private String longitude;   //经度
+    private String latitude;    //纬度
+
+
 
 
     // 仅在客户端使用，不希望被gson序列化提交到后端云，记得用transient修饰
@@ -107,5 +112,22 @@ public class MyTable extends BmobObject {
         this.heartbeat = heartbeat;
     }
 
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+    
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
 
 }

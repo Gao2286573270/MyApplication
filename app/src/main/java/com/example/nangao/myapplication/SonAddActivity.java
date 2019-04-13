@@ -23,6 +23,11 @@ public class SonAddActivity extends AppCompatActivity {
     private EditText oldpassword;
     private Button sure;
     String son_phone;
+    String default_blood;
+    String default_heartbeat;
+    String default_longitude;
+    String default_latitude;
+
 
 
     @Override
@@ -38,6 +43,12 @@ public class SonAddActivity extends AppCompatActivity {
         oldname = findViewById(R.id.text_oldname);
         oldphone = findViewById(R.id.text_oldphone);
         oldpassword = findViewById(R.id.text_oldpassword);
+
+        default_blood = String.valueOf(60);   //默认的血压值
+        default_heartbeat = String.valueOf(60);   //默认的心跳值
+        default_latitude = String.valueOf(0.0);//默认的经度
+        default_longitude = String.valueOf(0.0);//默认的纬度
+
     }
 
     public void bind_skip_sonhome(View view) {
@@ -68,11 +79,16 @@ public class SonAddActivity extends AppCompatActivity {
                             Toast.makeText(SonAddActivity.this, "查询成功", Toast.LENGTH_SHORT).show();
                             panduan=2;
                             //成功后panduan等于2,则跳出该循环,并且把输入快都清空,跳转到指定页面
+
+                            //生成老人信息列（姓名、手机号、密码、血压心跳、经纬度）
                             list.get(i).setOldname(name);
                             list.get(i).setOldphonenumber(phone);
                             list.get(i).setOldpassword(password);
-                            list.get(i).setBlood(phone);
-                            list.get(i).setHeartbeat(password);
+                            list.get(i).setBlood(default_blood);
+                            list.get(i).setHeartbeat(default_heartbeat);
+                            list.get(i).setLongitude(default_longitude);
+                            list.get(i).setLatitude(default_latitude);
+
 
                             list.get(i).save(new SaveListener<String>() {
                                 @Override

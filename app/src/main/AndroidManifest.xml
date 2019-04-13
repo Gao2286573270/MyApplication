@@ -3,6 +3,7 @@
     package="com.example.nangao.myapplication">
 
 
+
     <!--允许联网 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!--获取GSM（2g）、WCDMA（联通3g）等网络状态的信息  -->
@@ -15,6 +16,25 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!--允许读取手机状态 用于创建BmobInstallation-->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+
+
+    <!--允许程序打开网络套接字-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 定位 -->
+    <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"></uses-permission>
+    <!--允许程序设置内置sd卡的写权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--允许程序获取网络状态-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--允许程序访问WiFi网络信息-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--允许程序读写手机状态和身份-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--允许程序访问CellID或WiFi热点来获取粗略的位置-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 
     <application
@@ -51,6 +71,14 @@
         <activity android:name=".SonAddActivity"></activity>
         <activity android:name=".SonOldTracking"></activity>
         <activity android:name=".SonOldPosition"></activity>
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="268e8fefd83f288bbfc66ca2187399ee"></meta-data>
+        <!-- 定位需要的服务 -->
+        <service android:name="com.amap.api.location.APSService"></service>
+
+
     </application>
 
 </manifest>
