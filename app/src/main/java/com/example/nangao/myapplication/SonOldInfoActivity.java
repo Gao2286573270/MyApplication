@@ -69,7 +69,6 @@ public class SonOldInfoActivity extends AppCompatActivity {
         intent.setClass(SonOldInfoActivity.this, SonOldPosition.class);
         intent.putExtra("objectid",objectid);
         startActivity(intent);
-        finish();
     }
 
     public void sonheart_skip_tracking(View view) {
@@ -77,6 +76,5 @@ public class SonOldInfoActivity extends AppCompatActivity {
         intent.setClass(SonOldInfoActivity.this,SonOldTracking.class);
         intent.putExtra("objectid",objectid);
         startActivity(intent);
-        finish();
     }
 }

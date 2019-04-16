@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
@@ -21,6 +22,8 @@ public class OldEditHeartbeatActivity extends AppCompatActivity {
     private EditText blood;
     private EditText heartbeat;
     String objectid;
+    String oldname;
+    String oldpassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,13 +32,12 @@ public class OldEditHeartbeatActivity extends AppCompatActivity {
 
         final Intent intent = getIntent();
         objectid = intent.getStringExtra("objectid");
-        //Log.e("user", "老人所在行的 id:" + objectid);
-
+        oldname = intent.getStringExtra("oldname");
+        oldpassword = intent.getStringExtra("oldpass");
 
         blood = findViewById(R.id.blood_edit);
         heartbeat = findViewById(R.id.heart_edit);
     }
-
 
 
     //编辑老人血压和心跳信息的时候，点击"保存"
@@ -62,6 +64,8 @@ public class OldEditHeartbeatActivity extends AppCompatActivity {
                         Intent intent = new Intent();
                         intent.setClass(OldEditHeartbeatActivity.this, OldPageActivity.class);
 
+                        intent.putExtra("oldname",oldname);
+                        intent.putExtra("oldpass",oldpassword);
                         intent.putExtra("blood", blood1);
                         intent.putExtra("heartbeat", heartbeat1);
                         startActivity(intent);
@@ -74,14 +78,5 @@ public class OldEditHeartbeatActivity extends AppCompatActivity {
 
         }
     }
-
-
-
-    //编辑老人血压和心跳信息的时候，点击"取消"
-    public void oldeditcancel_skip_home(View view) {
-        Intent intent = new Intent();
-        intent.setClass(OldEditHeartbeatActivity.this, OldPageActivity.class);
-        startActivity(intent);
-        finish();
-    }
 }
+

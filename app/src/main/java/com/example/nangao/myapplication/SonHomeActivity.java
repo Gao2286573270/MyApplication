@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
@@ -24,48 +25,23 @@ public class SonHomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sonpage_home);
+        //Bmob.initialize(this,"b4548ed366e8ebe3312dbc064469f99e");
+
         //接收传递过来的参数(手机号、邮箱)，用于设置个人信息
         final Intent intent = getIntent();
         String phone = intent.getStringExtra("sonphone");
-        String email = intent.getStringExtra("sonemail");
+        String oldname = intent.getStringExtra("oldname");
         objectid = intent.getStringExtra("objectid");
-
-
-        MessageManager.getInstance().getMytable();
-
-        final BmobQuery<MyTable> Query = new BmobQuery<MyTable>();
-        Query.findObjects(new FindListener<MyTable>() {
-            @Override
-            public void done(List<MyTable> list, BmobException e) {
-                int panduan = 1;
-                for (int i = 0; i < list.size(); i++) {
-                    String bobjectid = list.get(i).getObjectId();
-                    if (bobjectid.equals(objectid))
-                    {
-                        panduan=2;
-                        oldname = list.get(i).getOldname();
-                        init(oldname);
-                        break;
-                    }
-                }
-                if(panduan==1)
-                {
-                    Toast.makeText(SonHomeActivity.this, "没有此objectid对应的值", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+        init(oldname);
     }
 
     private void init(String oldname)
     {
-
         Button toldname = (Button) findViewById(R.id.oldname1);
-
         toldname.setText(oldname);
-
     }
 
-
+//跳转到老人的信息页：血压心跳
     public void sonhome_skip_heartbeat(View view) {
         Intent intent = new Intent();
         intent.setClass(SonHomeActivity.this,SonOldInfoActivity.class);
@@ -75,7 +51,7 @@ public class SonHomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //获取首页输入的值
+//跳转到子女的个人信息页，获取首页输入的值
     public void sonhome_skip_info(View view) {
         Intent intent = new Intent();
         intent.setClass(SonHomeActivity.this, SonInfoActivity.class);
@@ -83,13 +59,14 @@ public class SonHomeActivity extends AppCompatActivity {
         //传递参数(手机号、邮箱)，用于设置个人信息
         final Intent intent1 = getIntent();
         String phone = intent1.getStringExtra("sonphone");
-        String email = intent1.getStringExtra("sonemail");
+        String sonpass = intent1.getStringExtra("sonpass");
         intent.putExtra("sonphone",phone);
-        intent.putExtra("sonemail",email);
+        intent.putExtra("sonpass",sonpass);
 
         startActivity(intent);
     }
 
+//跳转到绑定老人页，获取首页输入的值
     public void sonhome_skip_add(View view) {
         Intent intent = new Intent();
         intent.setClass(SonHomeActivity.this,SonAddActivity.class);
@@ -100,6 +77,7 @@ public class SonHomeActivity extends AppCompatActivity {
         intent.putExtra("sonphone",phone);
 
         startActivity(intent);
+        finish();   //结束当前页面
     }
 
 }

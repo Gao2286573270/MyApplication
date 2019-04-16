@@ -12,6 +12,7 @@ public class OldSecureActivity extends AppCompatActivity {
         setContentView(R.layout.oldpage_secure);
     }
 
+/*
     public void oldsecure_skip_info(View view) {
         Intent intent = new Intent();
         intent.setClass(OldSecureActivity.this,OldInfoActivity.class);
@@ -25,6 +26,7 @@ public class OldSecureActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+*/
 
 
 

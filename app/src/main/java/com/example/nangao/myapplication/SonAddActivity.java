@@ -12,14 +12,15 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
+import cn.bmob.v3.listener.UpdateListener;
 
 public class SonAddActivity extends AppCompatActivity {
     private EditText oldname;
-    private EditText oldphone;
     private EditText oldpassword;
     private Button sure;
     String son_phone;
@@ -34,14 +35,13 @@ public class SonAddActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sonpage_add_old);
+        //Bmob.initialize(this,"b4548ed366e8ebe3312dbc064469f99e");
 
         //接收传递过来的参数(手机号、邮箱)，用于设置绑定老人的信息
         final Intent intent = getIntent();
         son_phone = intent.getStringExtra("sonphone");
-        String i = intent.getStringExtra("order");
 
         oldname = findViewById(R.id.text_oldname);
-        oldphone = findViewById(R.id.text_oldphone);
         oldpassword = findViewById(R.id.text_oldpassword);
 
         default_blood = String.valueOf(60);   //默认的血压值
@@ -53,11 +53,10 @@ public class SonAddActivity extends AppCompatActivity {
 
     public void bind_skip_sonhome(View view) {
         final String name = oldname.getText().toString();//取输入的值
-        final String phone = oldphone.getText().toString();
         final String password = oldpassword.getText().toString();
 
         //当输入框为空的时候，点击确认绑定
-        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(phone) || TextUtils.isEmpty(password))
+        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(password))
         {
             Toast.makeText(SonAddActivity.this, "还没有输入内容", Toast.LENGTH_LONG).show();
         }
@@ -82,32 +81,30 @@ public class SonAddActivity extends AppCompatActivity {
 
                             //生成老人信息列（姓名、手机号、密码、血压心跳、经纬度）
                             list.get(i).setOldname(name);
-                            list.get(i).setOldphonenumber(phone);
                             list.get(i).setOldpassword(password);
                             list.get(i).setBlood(default_blood);
                             list.get(i).setHeartbeat(default_heartbeat);
                             list.get(i).setLongitude(default_longitude);
                             list.get(i).setLatitude(default_latitude);
 
-
-                            list.get(i).save(new SaveListener<String>() {
+                            list.get(i).update(new UpdateListener() {
                                 @Override
-                                public void done(String s, BmobException e) {
-                                    if (e != null) {//插入异常
+                                public void done(BmobException e) {
+                                    if(e != null)//插入异常
+                                    {
                                         Toast.makeText(SonAddActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-                                    } else
-                                    {//插入成功，跳转回首页
+                                    }
+                                    else {
+                                        //插入成功，跳转回首页
                                         Intent intent = new Intent();
                                         intent.setClass(SonAddActivity.this, SonHomeActivity.class);
-                                        /*intent.putExtra("biood",default_blood);
-                                        intent.putExtra("heartbeat",default_heartbeat);
-                                        intent.putExtra("longitude",default_longitude);
-                                        intent.putExtra("latitude",default_latitude);*/
                                         intent.putExtra("oldname",name);
                                         startActivity(intent);
+                                        finish();
                                     }
                                 }
                             });
+
                             break;
                         }
                     }
@@ -116,9 +113,7 @@ public class SonAddActivity extends AppCompatActivity {
                         //登录失败，把输入快都清空,跳转到指定页面
                        /* phoneNums.setText("");
                         password.setText("");*/
-
                     }
-
                 }
             });
         }

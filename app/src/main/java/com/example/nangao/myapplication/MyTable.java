@@ -11,11 +11,9 @@ import android.widget.Toast;
 
 //一个数据对象（APP中创建的BmobObject类的子类）对应于Bmob后台的一个数据表。
 public class MyTable extends BmobObject {
-    private String oldname;//老人姓名
-    private String oldphonenumber;//老人手机号
+    private String oldname;//老人用户名
     private String oldpassword;//老人密码
     private String sonphonenumber;//子女手机号
-    private String sonemail;//子女邮箱
     private String sonpassword;//子女密码
     private String blood;//老人的血压
     private String heartbeat;//老人的心跳
@@ -42,16 +40,6 @@ public class MyTable extends BmobObject {
         this.oldname = oldname;
     }
 
-    public String getOldphonenumber()
-    {
-        return oldphonenumber;
-    }
-
-    public void setOldphonenumber(String oldphonenumber)
-    {
-        this.oldphonenumber = oldphonenumber;
-    }
-
 
     public String getOldpassword()
     {
@@ -74,15 +62,6 @@ public class MyTable extends BmobObject {
         this.sonphonenumber = sonphonenumber;
     }
 
-    public String getSonemail()
-    {
-        return sonemail;
-    }
-
-    public void setSonemail(String sonemail)
-    {
-        this.sonemail = sonemail;
-    }
 
     public String getSonpassword()
     {

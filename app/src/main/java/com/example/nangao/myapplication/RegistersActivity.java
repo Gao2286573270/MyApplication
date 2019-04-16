@@ -26,7 +26,6 @@ public class RegistersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_son);
 
-        sonemial = findViewById(R.id.stext_mailbox);//获取该按钮
         sonphone = findViewById(R.id.stext_userid);
         sonpassword = findViewById(R.id.stext_userpwd);
 
@@ -34,16 +33,15 @@ public class RegistersActivity extends AppCompatActivity {
 
 
     public void register_skip_mian(View view) {
-        String email = sonemial.getText().toString();//取输入的值
         String phone = sonphone.getText().toString();
         String password = sonpassword.getText().toString();
         //当输入框为空的时候，点击注册
-        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(phone) || TextUtils.isEmpty(password)) {
+        if (TextUtils.isEmpty(phone) || TextUtils.isEmpty(password)) {
             Toast.makeText(RegistersActivity.this, "还没有输入内容", Toast.LENGTH_LONG).show();
         } else {
         //从控制台获取表，上传输入的值
             MessageManager.getInstance().getMytable();
-            MessageManager.getInstance().setSonMessage(phone,email,password);
+            MessageManager.getInstance().setSonMessage(phone,password);
 
             MessageManager.getInstance().getMytable().save(new SaveListener<String>() {
                 @Override

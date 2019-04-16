@@ -21,12 +21,12 @@
 
     <TextView
         android:id="@+id/username"
-        android:layout_width="60dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginLeft="150dp"
+        android:layout_width="76dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginLeft="110dp"
         android:layout_marginTop="140dp"
-        android:text="姓名："
+        android:text="用户名："
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,10 +34,10 @@
 
     <TextView
         android:id="@+id/text_name"
-        android:layout_width="109dp"
+        android:layout_width="112dp"
         android:layout_height="28dp"
-        android:layout_marginStart="220dp"
-        android:layout_marginLeft="220dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginLeft="200dp"
         android:layout_marginTop="140dp"
         android:text="xxx"
         android:textColor="#000000"
@@ -47,13 +47,13 @@
 
 
     <TextView
-        android:id="@+id/phone_number"
-        android:layout_width="103dp"
+        android:id="@+id/password"
+        android:layout_width="58dp"
         android:layout_height="30dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginLeft="150dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginLeft="110dp"
         android:layout_marginTop="48dp"
-        android:text="手机号："
+        android:text="密码："
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,11 +61,11 @@
 
 
     <TextView
-        android:id="@+id/text_phone"
-        android:layout_width="92dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="232dp"
-        android:layout_marginLeft="232dp"
+        android:id="@+id/text_password"
+        android:layout_width="103dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginLeft="200dp"
         android:layout_marginTop="216dp"
         android:text="xxx"
         android:textColor="#000000"
@@ -74,37 +74,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="125dp"
-        android:layout_height="65dp"
-        android:text="个人信息"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button2" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="125dp"
-        android:layout_height="65dp"
-        android:text="一键求救"
-        android:onClick="oldinfo_skip_secure"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button"
-        app:layout_constraintStart_toEndOf="@+id/button3"
-        tools:ignore="OnClick"/>
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="125dp"
-        android:layout_height="65dp"
-        android:text="身体健康参数"
-        android:onClick="oldinfo_skip_heartbeat"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
+    <TextView
+        android:id="@+id/position"
+        android:layout_width="241dp"
+        android:layout_height="151dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="292dp"
+        android:text="位置信息"
+        android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="OnClick"/>
-
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

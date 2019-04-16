@@ -27,10 +27,9 @@ public class MessageManager {
     }
 
     //上传输入的值（子女的信息）
-    public void setSonMessage(String sonphonenumber,String sonemail,String sonpassword)
+    public void setSonMessage(String sonphonenumber,String sonpassword)
     {
         mytable.setSonphonenumber(sonphonenumber);
-        mytable.setSonemail(sonemail);
         mytable.setSonpassword(sonpassword);
     }
 

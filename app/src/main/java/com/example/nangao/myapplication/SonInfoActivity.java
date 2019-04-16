@@ -25,20 +25,19 @@ public class SonInfoActivity extends AppCompatActivity {
 //接收传递过来的参数(手机号、邮箱)，用于设置个人信息
         final Intent intent = getIntent();
         String phone = intent.getStringExtra("sonphone");
-        String email = intent.getStringExtra("sonemail");
-        init(phone,email);
+        String sonpass = intent.getStringExtra("sonpass");
+        init(phone,sonpass);
     }
 
 
     //接收到登录后的子女信息，给info赋值
-    private void init(String phone,String email)
+    private void init(String phone,String sonpass)
     {
+        TextView phonenumber = (TextView)findViewById(R.id.stext_phone);
+        TextView password = (TextView)findViewById(R.id.stext_password);
 
-        TextView email1 = (TextView)findViewById(R.id.text_mail);
-        TextView phonenumber = (TextView)findViewById(R.id.text_phone);
-
-        email1.setText(email);
         phonenumber.setText(phone);
+        password.setText(sonpass);
     }
 
 

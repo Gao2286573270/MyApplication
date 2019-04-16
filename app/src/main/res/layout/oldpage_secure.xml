@@ -20,37 +20,6 @@
 
 
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="125dp"
-        android:layout_height="65dp"
-        android:text="个人信息"
-        android:onClick="oldsecure_skip_info"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        tools:ignore="OnClick"/>
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="125dp"
-        android:layout_height="65dp"
-        android:text="一键求救"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button"
-        app:layout_constraintStart_toEndOf="@+id/button3" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="125dp"
-        android:layout_height="65dp"
-        android:text="身体健康参数"
-        android:onClick="oldsecure_skip_heartbeat"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="OnClick"/>
-
 
 
 </android.support.constraint.ConstraintLayout>

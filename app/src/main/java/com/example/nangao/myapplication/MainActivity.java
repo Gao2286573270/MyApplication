@@ -72,8 +72,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-
-
         //根据身份的不同，跳转到不同的登录页面
         public void main_skip_oldpage (View view) {
             final String phone1 = phoneNums.getText().toString();
@@ -95,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                         for (int i = 0; i < list.size(); i++) {
                             String sonnumber = list.get(i).getSonphonenumber();
                             String sonpass = list.get(i).getSonpassword();
-                            String oldnumber = list.get(i).getOldphonenumber();
+                            String oldname = list.get(i).getOldname();
                             String oldpass = list.get(i).getOldpassword();
 
                             Log.e("user", "唯一 id:" + list.get(i).getObjectId() + "----" + sonnumber + "---" + sonpass);
@@ -106,19 +104,19 @@ public class MainActivity extends AppCompatActivity {
                                 //成功后panduan等于2,则跳出该循环,并且把输入快都清空,跳转到指定页面
                                 phoneNums.setText("");
                                 password.setText("");
-                                String email = list.get(i).getSonemail();
                                 String objectid  =  list.get(i).getObjectId();
 
                                 //传递参数(手机号、邮箱)，用于设置个人信息
                                 Intent intent = new Intent();
                                 intent.setClass(MainActivity.this, SonHomeActivity.class);
                                 intent.putExtra("sonphone", phone1);
-                                intent.putExtra("sonemail", email);
+                                intent.putExtra("sonpass",sonpass);
+                                intent.putExtra("oldname",oldname);
                                 intent.putExtra("objectid", objectid);//对应的行数
                                 startActivity(intent);
                                 break;
                             }
-                            if(phone1.equals(oldnumber) && pass1.equals(oldpass) && (judgeold == 1))
+                            if(phone1.equals(oldname) && pass1.equals(oldpass) && (judgeold == 1))
                             {
                                 Toast.makeText(MainActivity.this, "老人登录成功", Toast.LENGTH_SHORT).show();
                                 panduan = 2;
@@ -136,8 +134,8 @@ public class MainActivity extends AppCompatActivity {
                                 //传递参数(手机号、邮箱)，用于设置个人信息
                                 Intent intent = new Intent();
                                 intent.setClass(MainActivity.this, OldPageActivity.class);
-                                intent.putExtra("oldphone", phone1);
                                 intent.putExtra("oldname", name);
+                                intent.putExtra("oldpass",oldpass);
                                 intent.putExtra("blood", blood);
                                 intent.putExtra("heartbeat", heartbeat);
                                 intent.putExtra("objectid", objectid);//对应的行数

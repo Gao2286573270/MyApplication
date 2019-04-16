@@ -12,7 +12,7 @@ public class SonOldTracking extends AppCompatActivity {
         setContentView(R.layout.sonpage_old_tracking);
     }
 
-    public void tracking_skip_position(View view) {
+/*    public void tracking_skip_position(View view) {
         Intent intent = new Intent();
         intent.setClass(SonOldTracking.this, SonOldPosition.class);
         startActivity(intent);
@@ -24,6 +24,6 @@ public class SonOldTracking extends AppCompatActivity {
         intent.setClass(SonOldTracking.this,SonOldInfoActivity.class);
         startActivity(intent);
         finish();
-    }
+    }*/
 
 }

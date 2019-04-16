@@ -38,30 +38,28 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="178dp"
+        android:layout_width="169dp"
         android:layout_height="65dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="4dp"
         android:onClick="sonhome_skip_info"
         android:text="个人信息"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button2"
         tools:ignore="OnClick" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="188dp"
+        android:layout_width="179dp"
         android:layout_height="66dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="4dp"
         android:text="老人信息"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
