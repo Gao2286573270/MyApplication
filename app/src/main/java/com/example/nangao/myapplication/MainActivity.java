@@ -107,13 +107,14 @@ public class MainActivity extends AppCompatActivity {
                                 phoneNums.setText("");
                                 password.setText("");
                                 String email = list.get(i).getSonemail();
+                                String objectid  =  list.get(i).getObjectId();
 
                                 //传递参数(手机号、邮箱)，用于设置个人信息
                                 Intent intent = new Intent();
                                 intent.setClass(MainActivity.this, SonHomeActivity.class);
                                 intent.putExtra("sonphone", phone1);
                                 intent.putExtra("sonemail", email);
-                                intent.putExtra("order", i);//对应的行数
+                                intent.putExtra("objectid", objectid);//对应的行数
                                 startActivity(intent);
                                 break;
                             }
@@ -158,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //只需要子女注册
-        public void main_skip_registero (View view)
+        public void main_skip_registers (View view)
         {
             Intent intent = new Intent();
             intent.setClass(MainActivity.this, RegistersActivity.class);

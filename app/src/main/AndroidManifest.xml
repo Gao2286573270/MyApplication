@@ -59,7 +59,6 @@
         </provider>
 
         //创建一个activity，从首页能够跳转到注册页面
-        <activity android:name=".RegisteroActivity"></activity>
         <activity android:name=".RegistersActivity"></activity>
         <activity android:name=".OldPageActivity"></activity>
         <activity android:name=".OldEditHeartbeatActivity"></activity>

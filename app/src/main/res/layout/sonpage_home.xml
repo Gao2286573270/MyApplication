@@ -22,7 +22,7 @@
 
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/oldname1"
         android:layout_width="379dp"
         android:layout_height="70dp"
         android:layout_marginTop="60dp"
@@ -38,20 +38,20 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="181dp"
+        android:layout_width="178dp"
         android:layout_height="65dp"
         android:layout_marginEnd="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="8dp"
-        android:text="个人信息"
         android:onClick="sonhome_skip_info"
+        android:text="个人信息"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="OnClick"/>
+        tools:ignore="OnClick" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="193dp"
+        android:layout_width="188dp"
         android:layout_height="66dp"
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"

@@ -126,15 +126,6 @@ public class OldPageActivity extends AppCompatActivity implements AMapLocationLi
 
 
 
-
-
-
-
-
-
-
-
-
     //接收到登录后的老人信息，给身体健康参数赋值
     private void init(String bmobblood,String bmobheartbeat)
     {

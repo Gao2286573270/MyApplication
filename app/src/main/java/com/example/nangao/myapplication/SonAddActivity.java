@@ -99,6 +99,11 @@ public class SonAddActivity extends AppCompatActivity {
                                     {//插入成功，跳转回首页
                                         Intent intent = new Intent();
                                         intent.setClass(SonAddActivity.this, SonHomeActivity.class);
+                                        /*intent.putExtra("biood",default_blood);
+                                        intent.putExtra("heartbeat",default_heartbeat);
+                                        intent.putExtra("longitude",default_longitude);
+                                        intent.putExtra("latitude",default_latitude);*/
+                                        intent.putExtra("oldname",name);
                                         startActivity(intent);
                                     }
                                 }
