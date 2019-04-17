@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                         if(panduan==1){
-                            Toast.makeText(MainActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "账号或密码不正确", Toast.LENGTH_SHORT).show();
                             //登录失败，把输入框都清空,跳转到指定页面
                             phoneNums.setText("");
                             password.setText("");

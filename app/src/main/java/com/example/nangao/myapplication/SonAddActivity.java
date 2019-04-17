@@ -75,7 +75,7 @@ public class SonAddActivity extends AppCompatActivity {
                         Log.e("user","唯一 id:"+list.get(i).getObjectId()+"----"+phonenumber);
 
                         if(phonenumber.equals(son_phone)){
-                            Toast.makeText(SonAddActivity.this, "查询成功", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(SonAddActivity.this, "查询成功", Toast.LENGTH_SHORT).show();
                             panduan=2;
                             //成功后panduan等于2,则跳出该循环,并且把输入快都清空,跳转到指定页面
 

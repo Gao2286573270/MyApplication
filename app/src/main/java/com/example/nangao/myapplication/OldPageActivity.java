@@ -78,6 +78,7 @@ public class OldPageActivity extends AppCompatActivity {
         final Intent intent1 = getIntent();
         String name = intent1.getStringExtra("oldname");
         String oldpass = intent1.getStringExtra("oldpass");
+        String objectid = intent1.getStringExtra("objectid");
 
         intent.putExtra("oldname",name);
         intent.putExtra("oldpass",oldpass);

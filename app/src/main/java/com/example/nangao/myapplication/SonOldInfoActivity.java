@@ -25,7 +25,12 @@ public class SonOldInfoActivity extends AppCompatActivity {
 
         final Intent intent = getIntent();//接收从新增页传来的objectid
         objectid = intent.getStringExtra("objectid");
+        setvalue(objectid);
 
+    }
+
+    protected void setvalue(final String objectid)
+    {
         //根据objectid，获取对应老人的血压值、心跳值
         MessageManager.getInstance().getMytable();
 
@@ -53,6 +58,7 @@ public class SonOldInfoActivity extends AppCompatActivity {
         });
     }
 
+
   //给老人的信息赋值
     private void init(String blood,String heartbeat)
     {
@@ -74,7 +80,7 @@ public class SonOldInfoActivity extends AppCompatActivity {
     public void sonheart_skip_tracking(View view) {
         Intent intent = new Intent();
         intent.setClass(SonOldInfoActivity.this,SonOldTracking.class);
-        intent.putExtra("objectid",objectid);
+        //intent.putExtra("objectid",objectid);
         startActivity(intent);
     }
 }
