@@ -10,15 +10,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import cn.bmob.v3.BmobUser;
+
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 
 public class RegistersActivity extends AppCompatActivity {
-    private EditText sonemial;
     private EditText sonphone;
     private EditText sonpassword;
-    private Button register;
+    private EditText ssurepassword;
+
 
 
     @Override
@@ -28,6 +28,7 @@ public class RegistersActivity extends AppCompatActivity {
 
         sonphone = findViewById(R.id.stext_userid);
         sonpassword = findViewById(R.id.stext_userpwd);
+        ssurepassword = findViewById(R.id.sstext_userpwd);
 
     }
 
@@ -35,10 +36,14 @@ public class RegistersActivity extends AppCompatActivity {
     public void register_skip_mian(View view) {
         String phone = sonphone.getText().toString();
         String password = sonpassword.getText().toString();
+        String spassword = ssurepassword.getText().toString();
+
         //当输入框为空的时候，点击注册
-        if (TextUtils.isEmpty(phone) || TextUtils.isEmpty(password)) {
+        if (TextUtils.isEmpty(phone) || TextUtils.isEmpty(password) || TextUtils.isEmpty(spassword)) {
             Toast.makeText(RegistersActivity.this, "还没有输入内容", Toast.LENGTH_LONG).show();
-        } else {
+        }
+        else if(password.equals(spassword))
+        {
         //从控制台获取表，上传输入的值
             MessageManager.getInstance().getMytable();
             MessageManager.getInstance().setSonMessage(phone,password);
@@ -53,9 +58,15 @@ public class RegistersActivity extends AppCompatActivity {
                         Intent intent = new Intent();
                         intent.setClass(RegistersActivity.this, MainActivity.class);
                         startActivity(intent);
+                        finish();
                     }
                 }
             });
+        }
+        else{
+            Toast.makeText(RegistersActivity.this, "两次输入密码不一致", Toast.LENGTH_LONG).show();
+            sonpassword.setText("");
+            ssurepassword.setText("");
         }
     }
 }

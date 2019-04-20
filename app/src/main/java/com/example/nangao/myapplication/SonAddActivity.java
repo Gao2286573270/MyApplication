@@ -22,6 +22,7 @@ import cn.bmob.v3.listener.UpdateListener;
 public class SonAddActivity extends AppCompatActivity {
     private EditText oldname;
     private EditText oldpassword;
+    private EditText soldpassword;
     private Button sure;
     String son_phone;
     String default_blood;
@@ -43,6 +44,7 @@ public class SonAddActivity extends AppCompatActivity {
 
         oldname = findViewById(R.id.text_oldname);
         oldpassword = findViewById(R.id.text_oldpassword);
+        soldpassword = findViewById(R.id.stext_oldpassword);
 
         default_blood = String.valueOf(60);   //默认的血压值
         default_heartbeat = String.valueOf(60);   //默认的心跳值
@@ -54,13 +56,14 @@ public class SonAddActivity extends AppCompatActivity {
     public void bind_skip_sonhome(View view) {
         final String name = oldname.getText().toString();//取输入的值
         final String password = oldpassword.getText().toString();
+        final String spassword = soldpassword.getText().toString();
 
         //当输入框为空的时候，点击确认绑定
         if (TextUtils.isEmpty(name) || TextUtils.isEmpty(password))
         {
             Toast.makeText(SonAddActivity.this, "还没有输入内容", Toast.LENGTH_LONG).show();
         }
-        else {
+        else if(password.equals(spassword)){
             //从控制台获取表，上传输入的值
             MessageManager.getInstance().getMytable();
 
@@ -117,5 +120,11 @@ public class SonAddActivity extends AppCompatActivity {
                 }
             });
         }
+         else{
+            Toast.makeText(SonAddActivity.this, "两次输入密码不一致", Toast.LENGTH_LONG).show();
+            oldpassword.setText("");
+            soldpassword.setText("");
+        }
+
     }
 }

@@ -24,25 +24,39 @@
         android:layout_height="33dp"
         android:layout_marginStart="70dp"
         android:layout_marginLeft="70dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="130dp"
         android:text="@string/phone_number"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
         android:id="@+id/suser_pwd"
         android:layout_width="69dp"
         android:layout_height="32dp"
+        android:layout_marginStart="70dp"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="60dp"
         android:text="@string/password"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/suser_id" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/suser_id" />
+
+    <TextView
+        android:id="@+id/sure_pwd"
+        android:layout_width="100dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="60dp"
+        android:text="确认密码："
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/suser_pwd" />
 
 
     <EditText
@@ -53,6 +67,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="20dp"
         android:digits="0123456789"
+        android:maxLength="11"
         android:hint="请输入手机号"
         android:paddingTop="0dp"
         android:textColor="#000000"
@@ -80,14 +95,31 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@id/suser_pwd" />
 
+    <EditText
+        android:id="@+id/sstext_userpwd"
+        android:layout_width="180dp"
+        android:layout_height="33dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginRight="40dp"
+        android:hint="再次输入密码"
+        android:paddingTop="0dp"
+        android:password="true"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintLeft_toRightOf="@+id/suser_pwd"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/suser_pwd" />
+
 
     <Button
         android:id="@+id/sureregister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginLeft="144dp"
+        android:layout_marginTop="124dp"
         android:onClick="register_skip_mian"
         android:text="@string/register_sure"
         android:textColor="#ffffff"

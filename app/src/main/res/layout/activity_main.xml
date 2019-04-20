@@ -58,6 +58,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/user_id" />
 
+    //限制输入框只能输入：字母、数字，长度为11
     <EditText
         android:id="@+id/text_userid"
         android:layout_width="200dp"
@@ -65,7 +66,8 @@
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="20dp"
-        android:digits="0123456789"
+        android:maxLength="11"
+        android:digits="0123456789qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM"
         android:hint="请输入手机号/用户名"
         android:paddingTop="0dp"
         android:textColor="#000000"
@@ -76,12 +78,14 @@
         app:layout_constraintStart_toEndOf="@+id/user_id"
         app:layout_constraintTop_toTopOf="@id/user_id" />
 
+    //密码最小6位
     <EditText
         android:id="@+id/text_userpwd"
         android:layout_width="204dp"
         android:layout_height="32dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="20dp"
+        android:maxLength="10"
         android:hint="请输入密码"
         android:paddingTop="0dp"
         android:password="true"

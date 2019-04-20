@@ -28,7 +28,7 @@
         android:layout_height="33dp"
         android:layout_marginStart="80dp"
         android:layout_marginLeft="80dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="150dp"
         android:text="用户名："
         android:textColor="#000000"
         android:textSize="18sp"
@@ -41,13 +41,25 @@
         android:layout_height="33dp"
         android:layout_marginStart="80dp"
         android:layout_marginLeft="80dp"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="230dp"
         android:text="@string/password"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/sold_password"
+        android:layout_width="91dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="300dp"
+        android:text="确认密码："
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/text_oldname"
@@ -56,8 +68,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="30dp"
-        android:digits="0123456789"
-        android:hint="请输入姓名"
+        android:maxLength="6"
+        android:digits="0123456789qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM"
+        android:hint="请输入用户名"
         android:paddingTop="0dp"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -67,6 +80,7 @@
         app:layout_constraintStart_toEndOf="@+id/old_name"
         app:layout_constraintTop_toTopOf="@id/old_name" />
 
+
     <EditText
         android:id="@+id/text_oldpassword"
         android:layout_width="165dp"
@@ -75,7 +89,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="20dp"
         android:digits="0123456789"
+        android:maxLength="10"
         android:hint="请输入密码"
+        android:password="true"
         android:paddingTop="0dp"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -85,20 +101,41 @@
         app:layout_constraintStart_toEndOf="@+id/old_password"
         app:layout_constraintTop_toTopOf="@id/old_password" />
 
+
+    <EditText
+        android:id="@+id/stext_oldpassword"
+        android:layout_width="165dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="20dp"
+        android:digits="0123456789"
+        android:maxLength="10"
+        android:hint="再次输入密码"
+        android:password="true"
+        android:paddingTop="0dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toRightOf="@+id/sold_password"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sold_password"
+        app:layout_constraintTop_toTopOf="@id/sold_password" />
+
     <Button
         android:id="@+id/button5"
         android:layout_width="135dp"
         android:layout_height="70dp"
-        android:layout_marginTop="368dp"
+        android:layout_marginTop="384dp"
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
-        android:text="确认绑定"
         android:onClick="bind_skip_sonhome"
+        android:text="确认绑定"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.713"
+        app:layout_constraintHorizontal_bias="0.723"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="OnClick"/>
+        tools:ignore="OnClick" />
 
 
 
