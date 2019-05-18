@@ -15,6 +15,8 @@ import android.widget.Toast;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UpdateListener;
 
+
+
 public class OldPageActivity extends AppCompatActivity {
     //定位需要的参数
     String objectid;

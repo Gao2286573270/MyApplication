@@ -13,8 +13,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
-import com.example.nangao.myapplication.MyTable;
-
 
 import java.util.List;
 
@@ -24,16 +22,11 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
-import cn.bmob.v3.listener.SaveListener;
+import cn.bmob.v3.BmobSMS;
 
 
 public class MainActivity extends AppCompatActivity {
-
-    private RadioButton oldRb;//单选按钮
-    private RadioButton sonRb;
-    private Button loginBt;
-    private Button registerBt;
-    private int judgeold = 1;
+    private int judgeold = 1;//单选按钮的判断
     private EditText phoneNums;
     private EditText password;
 
@@ -50,11 +43,8 @@ public class MainActivity extends AppCompatActivity {
         private void initView () {
             //初始化按钮对象(单选按钮)
             RadioGroup radgroup = (RadioGroup) findViewById(R.id.radioButton);
-            loginBt = (Button) findViewById(R.id.login);
-            registerBt = (Button) findViewById(R.id.register);
             phoneNums = findViewById(R.id.text_userid);//app首页的输入框
             password = findViewById(R.id.text_userpwd);
-
 
             //给按钮对象设置监听器，如果选择老人，标签设为1
             radgroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()

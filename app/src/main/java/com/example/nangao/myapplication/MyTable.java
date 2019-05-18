@@ -1,12 +1,9 @@
 package com.example.nangao.myapplication;
 
-import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobObject;
-import cn.bmob.v3.BmobUser;
-import cn.bmob.v3.datatype.BmobGeoPoint;
-import cn.bmob.v3.exception.BmobException;
-import cn.bmob.v3.listener.SaveListener;
-import android.widget.Toast;
+
+
+import java.util.List;
 
 
 //一个数据对象（APP中创建的BmobObject类的子类）对应于Bmob后台的一个数据表。
@@ -20,6 +17,7 @@ public class MyTable extends BmobObject {
     private String longitude;   //经度
     private String latitude;    //纬度
 
+    private List<PositionPoint> track;//老人的位置点数组
 
 
 
@@ -107,6 +105,14 @@ public class MyTable extends BmobObject {
 
     public void setLatitude(String latitude) {
         this.latitude = latitude;
+    }
+
+    public List<PositionPoint> getTrack() {
+        return track;
+    }
+
+    public void setTrack(List<PositionPoint> track) {
+        this.track = track;
     }
 
 }

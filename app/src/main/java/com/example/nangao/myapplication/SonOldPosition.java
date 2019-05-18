@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.location.Location;
 import android.widget.Toast;
+import android.content.Context;
+
 
 import java.util.List;
 

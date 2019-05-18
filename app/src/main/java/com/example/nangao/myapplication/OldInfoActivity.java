@@ -4,17 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.ParcelFileDescriptor;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.location.LocationManager;
 
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UpdateListener;
@@ -27,6 +32,8 @@ public class OldInfoActivity extends AppCompatActivity implements AMapLocationLi
     private String latitude;
     String objectid;
     private TextView position;
+    int i=0;
+    int j =0;
 
 
     @Override
@@ -55,6 +62,7 @@ public class OldInfoActivity extends AppCompatActivity implements AMapLocationLi
         oldpass.setText(pass);
 
     }
+
     //声明定位回调监听器
     @Override
     public void onLocationChanged(AMapLocation loc) {
@@ -109,6 +117,22 @@ public class OldInfoActivity extends AppCompatActivity implements AMapLocationLi
         };
 
     };
+
+/*    //MessageManager.getInstance().getMytable().add("track",new PositionPoint(latitude,longitude));
+    i = i+1;
+    //正常数组的移位.数组内存5个数，一旦有新的值进来，依次往前挪。（如何控制在同一个位置，却还在不停的上报数据？）
+    List<PositionPoint> track = new ArrayList<PositionPoint>();
+
+                         if(i<5)
+    {
+        for(j=0;j<4;j++)
+        {
+            track.get(j).setLatitude(track.get(j+1).getLatitude());
+            track.get(j).setLongitude(track.get(j+1).getLongitude());
+        }
+        j=0;
+        track.add(new PositionPoint(latitude,longitude));
+    }*/
 
     public void Location() {
         // TODO Auto-generated method stub

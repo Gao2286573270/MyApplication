@@ -6,5 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    //添加地图控件
+    <com.amap.api.maps.MapView
+
+        android:id="@+id/maptrack"
+
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent">
+
+    </com.amap.api.maps.MapView>
+
+<!--    <TextView
+        android:id="@+id/tv_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="路程："
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="24dp"
+        android:text="当前速度："
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_distance" />-->
+
 
 </android.support.constraint.ConstraintLayout>

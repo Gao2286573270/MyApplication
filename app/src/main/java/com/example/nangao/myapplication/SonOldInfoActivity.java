@@ -13,7 +13,7 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
-public class SonOldInfoActivity extends AppCompatActivity {
+public class SonOldInfoActivity extends AppCompatActivity  {
     String objectid;
     String blood;
     String heartbeat;
@@ -80,7 +80,7 @@ public class SonOldInfoActivity extends AppCompatActivity {
     public void sonheart_skip_tracking(View view) {
         Intent intent = new Intent();
         intent.setClass(SonOldInfoActivity.this,SonOldTracking.class);
-        //intent.putExtra("objectid",objectid);
+        intent.putExtra("objectid",objectid);
         startActivity(intent);
     }
 }

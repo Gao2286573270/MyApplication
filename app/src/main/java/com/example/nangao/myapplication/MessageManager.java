@@ -38,4 +38,5 @@ public class MessageManager {
     public MyTable getMytable(){
         return mytable;
     }
+
 }
