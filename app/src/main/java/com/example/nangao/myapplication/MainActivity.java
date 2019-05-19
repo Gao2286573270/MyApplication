@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 //传递参数(手机号、邮箱)，用于设置个人信息
                                 Intent intent = new Intent();
-                                intent.setClass(MainActivity.this, OldPageActivity.class);
+                                intent.setClass(MainActivity.this, OldInfoActivity.class);
                                 intent.putExtra("oldname", name);
                                 intent.putExtra("oldpass",oldpass);
                                 intent.putExtra("blood", blood);

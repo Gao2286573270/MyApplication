@@ -61,8 +61,6 @@
         //创建一个activity，从首页能够跳转到注册页面
         <activity android:name=".RegistersActivity"></activity>
         <activity android:name=".OldPageActivity"></activity>
-        <activity android:name=".OldEditHeartbeatActivity"></activity>
-        <activity android:name=".OldSecureActivity"></activity>
         <activity android:name=".OldInfoActivity"></activity>
         <activity android:name=".SonHomeActivity"></activity>
         <activity android:name=".SonOldInfoActivity"></activity>

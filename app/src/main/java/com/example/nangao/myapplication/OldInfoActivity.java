@@ -157,6 +157,11 @@ public class OldInfoActivity extends AppCompatActivity implements AMapLocationLi
         }
     }
 
-
+    public void old_skip_health (View view)
+    {
+        Intent intent = new Intent();
+        intent.setClass(OldInfoActivity.this, OldPageActivity.class);
+        startActivity(intent);
+    }
 
 }
