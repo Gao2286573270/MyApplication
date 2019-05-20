@@ -15,13 +15,13 @@ import cn.bmob.v3.listener.FindListener;
 
 public class SonOldInfoActivity extends AppCompatActivity  {
     String objectid;
-    String blood;
-    String heartbeat;
+    String name;
+    String oldpass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sonpage_old_heartbeat);
+        setContentView(R.layout.sonpage_old_info);
 
         final Intent intent = getIntent();//接收从新增页传来的objectid
         objectid = intent.getStringExtra("objectid");
@@ -44,9 +44,9 @@ public class SonOldInfoActivity extends AppCompatActivity  {
                     if (bobjectid.equals(objectid))
                     {
                         panduan=2;
-                        blood = list.get(i).getBlood();
-                        heartbeat = list.get(i).getHeartbeat();
-                        init(blood,heartbeat);
+                        name = list.get(i).getOldname();
+                        oldpass = list.get(i).getOldpassword();
+                        init(name,oldpass);
                         break;
                     }
                 }
@@ -60,24 +60,30 @@ public class SonOldInfoActivity extends AppCompatActivity  {
 
 
   //给老人的信息赋值
-    private void init(String blood,String heartbeat)
+    private void init(String name,String oldpass)
     {
-        TextView tblood = (TextView)findViewById(R.id.blood_value);
-        TextView theartbeat = (TextView)findViewById(R.id.heartbeat_value);
+        TextView tname = (TextView)findViewById(R.id.blood_value);
+        TextView toldpass = (TextView)findViewById(R.id.heartbeat_value);
 
-        tblood.setText(blood);
-        theartbeat.setText(heartbeat);
+        tname.setText(name);
+        toldpass.setText(oldpass);
+    }
+
+    public void oldinfo_skip_health(View view) {
+        Intent intent = new Intent();
+        intent.setClass(SonOldInfoActivity.this, SonOldHealth.class);
+        startActivity(intent);
     }
 
 
-    public void sonheart_skip_positon(View view) {
+    public void oldinfo_skip_positon(View view) {
         Intent intent = new Intent();
         intent.setClass(SonOldInfoActivity.this, SonOldPosition.class);
         intent.putExtra("objectid",objectid);
         startActivity(intent);
     }
 
-    public void sonheart_skip_tracking(View view) {
+    public void oldinfo_skip_tracking(View view) {
         Intent intent = new Intent();
         intent.setClass(SonOldInfoActivity.this,SonOldTracking.class);
         intent.putExtra("objectid",objectid);

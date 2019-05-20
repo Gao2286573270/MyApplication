@@ -34,6 +34,7 @@ public class OldInfoActivity extends AppCompatActivity implements AMapLocationLi
     private TextView position;
     int i=0;
     int j =0;
+    String phone;
 
 
     @Override
@@ -93,6 +94,7 @@ public class OldInfoActivity extends AppCompatActivity implements AMapLocationLi
                         latitude = strMsg[2];
 
                         MessageManager.getInstance().getMytable();
+                        phone = MessageManager.getInstance().getMytable().getSonphonenumber();
                         MessageManager.getInstance().getMytable().setLongitude(longitude);
                         MessageManager.getInstance().getMytable().setLatitude(latitude);
 
@@ -103,7 +105,7 @@ public class OldInfoActivity extends AppCompatActivity implements AMapLocationLi
                                     Toast.makeText(OldInfoActivity.this, "位置信息更新成功", Toast.LENGTH_SHORT).show();
 
                                 } else {
-                                    Toast.makeText(OldInfoActivity.this, "位置信息更新成功", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(OldInfoActivity.this, "位置信息更新失败", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
@@ -161,7 +163,11 @@ public class OldInfoActivity extends AppCompatActivity implements AMapLocationLi
     {
         Intent intent = new Intent();
         intent.setClass(OldInfoActivity.this, OldPageActivity.class);
+        intent.putExtra("phone", phone);
         startActivity(intent);
+
+
+
     }
 
 }
