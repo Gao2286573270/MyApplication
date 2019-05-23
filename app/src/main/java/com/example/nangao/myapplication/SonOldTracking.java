@@ -40,7 +40,7 @@ public class SonOldTracking extends AppCompatActivity  implements LocationSource
     MapView mMapView = null;
     AMap aMap = null;
     String objectid;
-    List<LatLng> latLngs = new ArrayList<>();
+    //List<LatLng> latLngs = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +55,10 @@ public class SonOldTracking extends AppCompatActivity  implements LocationSource
         //在activity执行onCreate时执行mMapView.onCreate(savedInstanceState)，创建地图
         mMapView.onCreate(savedInstanceState);
 
+
         ArrayList<LatLng> latLngs = new ArrayList<>();
 
-        setUpMap(Position.getLatLngs(objectid,latLngs));
+        setUpMap(Maker.getLatLngs());
 
     }
 
@@ -67,7 +68,7 @@ public class SonOldTracking extends AppCompatActivity  implements LocationSource
      * 在地图上画线
      */
     private void setUpMap(List<LatLng> list){
-
+        aMap = mMapView.getMap();
         if(list.size()>1){
 
             PolylineOptions polt=new PolylineOptions();
@@ -77,7 +78,7 @@ public class SonOldTracking extends AppCompatActivity  implements LocationSource
                 polt.add(list.get(i));
 
             }
-            polt.width(5).geodesic(true).color(Color.GREEN);
+            polt.width(5).geodesic(true).color(Color.RED);
             aMap.addPolyline(polt);
 
         }else{
@@ -89,16 +90,16 @@ public class SonOldTracking extends AppCompatActivity  implements LocationSource
 
 
     /**
-         * 方法必须重写
-         */
+     * 方法必须重写
+     */
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         mMapView.onSaveInstanceState(outState);
     }
     /**
-         * 方法必须重写
-         */
+     * 方法必须重写
+     */
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -143,4 +144,3 @@ public class SonOldTracking extends AppCompatActivity  implements LocationSource
 
 
 }
-

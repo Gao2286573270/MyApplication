@@ -34,7 +34,8 @@ public class OldInfoActivity extends AppCompatActivity implements AMapLocationLi
     private TextView position;
     int i=0;
     int j =0;
-    String phone;
+    //String phone;
+    List<PositionPoint> track = new ArrayList<PositionPoint>();
 
 
     @Override
@@ -52,16 +53,14 @@ public class OldInfoActivity extends AppCompatActivity implements AMapLocationLi
         Location();
     }
 
-
+    //用户名和密码赋值
     private void init(String name,String pass)
     {
-
         TextView name1 = (TextView)findViewById(R.id.text_name);
         TextView oldpass = (TextView)findViewById(R.id.text_password);
 
         name1.setText(name);
         oldpass.setText(pass);
-
     }
 
     //声明定位回调监听器
@@ -94,9 +93,27 @@ public class OldInfoActivity extends AppCompatActivity implements AMapLocationLi
                         latitude = strMsg[2];
 
                         MessageManager.getInstance().getMytable();
-                        phone = MessageManager.getInstance().getMytable().getSonphonenumber();
-                        MessageManager.getInstance().getMytable().setLongitude(longitude);
                         MessageManager.getInstance().getMytable().setLatitude(latitude);
+                        MessageManager.getInstance().getMytable().setLongitude(longitude);
+
+
+                        MessageManager.getInstance().getMytable().add("track",new PositionPoint(latitude,longitude));
+                        i=i+1;
+
+                        //正常数组的移位.数组内存5个数，一旦有新的值进来，依次往前挪。（如何控制在同一个位置，却还在不停的上报数据？）
+                        if(i>6)
+                        {
+                            for(j=0;j<5;j++)
+                            {
+                                track.get(j).setLatitude(track.get(j+1).getLatitude());
+                                track.get(j).setLongitude(track.get(j+1).getLongitude());
+                            }
+                            track.add(new PositionPoint(latitude,longitude));
+                        }
+
+
+
+
 
                         MessageManager.getInstance().getMytable().update(objectid, new UpdateListener() {
                             @Override
@@ -120,22 +137,8 @@ public class OldInfoActivity extends AppCompatActivity implements AMapLocationLi
 
     };
 
-/*    //MessageManager.getInstance().getMytable().add("track",new PositionPoint(latitude,longitude));
-    i = i+1;
-    //正常数组的移位.数组内存5个数，一旦有新的值进来，依次往前挪。（如何控制在同一个位置，却还在不停的上报数据？）
-    List<PositionPoint> track = new ArrayList<PositionPoint>();
 
-                         if(i<5)
-    {
-        for(j=0;j<4;j++)
-        {
-            track.get(j).setLatitude(track.get(j+1).getLatitude());
-            track.get(j).setLongitude(track.get(j+1).getLongitude());
-        }
-        j=0;
-        track.add(new PositionPoint(latitude,longitude));
-    }*/
-
+    //定位函数（设置定位时间间隔等）
     public void Location() {
         // TODO Auto-generated method stub
         try {
@@ -163,11 +166,7 @@ public class OldInfoActivity extends AppCompatActivity implements AMapLocationLi
     {
         Intent intent = new Intent();
         intent.setClass(OldInfoActivity.this, OldPageActivity.class);
-        intent.putExtra("phone", phone);
         startActivity(intent);
-
-
-
     }
 
 }
